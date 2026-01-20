@@ -1,0 +1,159 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and new features released for Orbit Media Studios.
+---
+
+## Recent Releases
+
+Stay informed about every update to Orbit Media Studios. You access the most recent changes here, organized by version. Each release includes new features, improvements, and bug fixes to enhance your media project management experience.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for media projects, allowing multiple users to edit assets simultaneously.
+- Introduced webhook support for project events like asset uploads and approvals.
+
+## Improvements
+
+- Enhanced media upload performance by `>30%` for large files.
+- Updated dashboard UI with customizable widgets for better workflow visibility.
+
+## Bug Fixes
+
+- Fixed asset preview rendering issues in Safari browsers.
+- Resolved synchronization errors during offline mode reconnects.
+
+</Update>
+
+<Update label="2024-09-25" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated AI-powered asset tagging to automatically categorize media files.
+- Added export options for projects in ZIP and JSON formats.
+
+## Bug Fixes
+
+- Corrected permission errors when sharing projects with external teams.
+- Patched API rate limiting inconsistencies affecting bulk operations.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Initial Release
+
+- Launched core media project management with asset storage, version control, and team collaboration.
+- Implemented secure API endpoints for programmatic access.
+
+## Breaking Changes
+
+- Initial schema updates require re-authentication for existing integrations.
+
+</Update>
+
+## Key Themes Across Releases
+
+Review the major areas of focus in recent updates through these summaries.
+
+<Columns cols={3}>
+
+<Card title="Collaboration" icon="users" href="#">
+
+Real-time editing and sharing improvements empower teams to work together seamlessly.
+
+</Card>
+
+<Card title="Performance" icon="zap" href="#">
+
+Optimizations deliver faster uploads and responsive interfaces for large media libraries.
+
+</Card>
+
+<Card title="Integrations" icon="plug" href="#">
+
+New webhooks and export formats extend Orbit Media Studios to your existing workflows.
+
+</Card>
+
+</Columns>
+
+## Stay Updated
+
+<Callout kind="tip">
+
+Enable notifications in your account settings to receive email alerts for new releases.
+
+</Callout>
+
+Follow these steps to integrate version checking into your application:
+
+<Steps>
+
+<Step title="Check Version" icon="check-circle">
+
+Use the API to fetch the current version.
+
+<CodeGroup tabs="JavaScript,Python">
+
+```javascript
+const response = await fetch('https://api.orbitmedia.com/v1/status');
+const { version } = await response.json();
+console.log(`Running v${version}`);
+```
+
+```python
+import requests
+response = requests.get('https://api.orbitmedia.com/v1/status')
+data = response.json()
+print(f"Running v{data['version']}")
+```
+
+</CodeGroup>
+
+</Step>
+
+<Step title="Subscribe to Updates" icon="bell">
+
+Visit the [dashboard](https://dashboard.orbitmedia.com/notifications) and toggle release notifications.
+
+</Step>
+
+</Steps>
+
+## Upcoming Features
+
+<Expandable title="Preview: What's Next" default-open="false">
+
+Get a sneak peek at features in development.
+
+<Tabs>
+
+<Tab title="AI Enhancements" icon="zap">
+
+- Auto-transcription for audio/video assets.
+- Smart search with natural language queries.
+
+</Tab>
+
+<Tab title="Analytics" icon="bar-chart-3">
+
+- Usage analytics dashboard.
+- Project performance metrics.
+
+</Tab>
+
+</Tabs>
+
+These previews help you plan integrations ahead of official releases.
+
+</Expandable>
+
+## Full Version History
+
+| Version | Date       | Key Highlights                  |
+|---------|------------|---------------------------------|
+| v1.2.0  | 2024-10-15 | Collaboration, webhooks         |
+| v1.1.0  | 2024-09-25 | AI tagging, exports             |
+| v1.0.0  | 2024-08-10 | Initial platform launch         |

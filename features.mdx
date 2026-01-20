@@ -1,0 +1,120 @@
+---
+title: Core Features of Orbit Media Studios
+description: Explore the essential tools and capabilities for creating, organizing, and collaborating on project documentation.
+---
+
+## Overview
+
+Orbit Media Studios provides a comprehensive platform for managing your project documentation. You create, edit, organize, and collaborate on docs efficiently. Key features include intuitive editing tools, flexible folder structures, real-time collaboration, and robust version history.
+
+<Columns cols={3}>
+  <Card title="Document Creation" icon="edit-3" href="#document-creation">
+    Build rich documents with markdown and components.
+  </Card>
+  <Card title="Project Organization" icon="folder" href="#project-organization">
+    Structure your docs with folders and hierarchies.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Share and work together seamlessly.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Start by creating your first document to experience these features firsthand.
+</Callout>
+
+## Document Creation and Editing
+
+You create new documents directly from the dashboard. The editor supports markdown, MDX components, and real-time previews.
+
+<Steps>
+  <Step title="Create Document" icon="plus">
+    Click the `New Document` button and select a template.
+  </Step>
+  <Step title="Edit Content" icon="edit">
+    Use the WYSIWYG editor or switch to markdown mode.
+  </Step>
+  <Step title="Add Components" icon="layers">
+    Insert `<Callout>`, `<Steps>`, or other components via the toolbar.
+  </Step>
+  <Step title="Preview and Publish" icon="eye">
+    Preview changes and publish with one click.
+  </Step>
+</Steps>
+
+```javascript
+// Example: Embedding a code block in your doc
+const apiResponse = {
+  status: 'success',
+  data: { id: 123, title: 'My First Doc' }
+};
+console.log(apiResponse);
+```
+
+## Project Organization and Folders
+
+Organize docs into projects and folders for better navigation. You nest folders deeply and use search for quick access.
+
+<Tabs>
+  <Tab title="Create Folder" icon="folder-plus">
+    Right-click in the sidebar and select `New Folder`. Name it descriptively, like `API Docs`.
+  </Tab>
+  <Tab title="Move Documents" icon="move">
+    Drag and drop docs between folders. Use bulk selection for multiple items.
+  </Tab>
+  <Tab title="Search and Filter" icon="search">
+    Use the global search bar to find docs by name, tag, or content.
+  </Tab>
+</Tabs>
+
+## Collaboration and Sharing Options
+
+Invite team members and share docs externally. Set permissions for view, edit, or admin access.
+
+<CodeGroup tabs="Invite,Share Link">
+  ```javascript
+  // Invite via API
+  await fetch('https://api.orbitmedia.com/v1/invites', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${YOUR_API_KEY}` },
+    body: JSON.stringify({ email: 'user@example.com', role: 'editor' })
+  });
+  ```
+  ```javascript
+  // Generate share link
+  const shareUrl = `https://docs.orbitmedia.com/project/123/doc/456?token=${SHARE_TOKEN}`;
+  console.log(shareUrl);
+  ```
+</CodeGroup>
+
+<Callout kind="tip">
+  Use role-based permissions to control access: `viewer`, `editor`, `admin`.
+</Callout>
+
+## Version History and Updates
+
+Track changes with automatic version history. You revert to previous versions or compare diffs.
+
+<Expandable title="View History" default-open="true">
+  Click the `History` icon on any doc. Select a version to restore or view changes.
+
+  ```mermaid
+  graph TD
+      A[Current] --> B[Version 2]
+      B --> C[Version 1]
+      C --> D[Initial]
+  ```
+</Expandable>
+
+<Expandable title="Advanced Version Control">
+  Integrate with Git for deeper control or use API to fetch history.
+</Expandable>
+
+<Columns cols={2}>
+  <Card title="Next: Quickstart" icon="rocket" href="/quickstart">
+    Set up your first project.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your workspace.
+  </Card>
+</Columns>

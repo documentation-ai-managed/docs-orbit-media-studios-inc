@@ -1,0 +1,152 @@
+---
+title: Integrations and Extensions
+description: Connect Orbit Media Studios with third-party tools and services to enhance your documentation workflow.
+---
+
+## Overview
+
+Orbit Media Studios supports seamless integrations with popular third-party tools. You can automate workflows using webhooks, export content for backups or migrations, import from external sources, and build custom extensions via the API. These features help you scale your documentation management efficiently.
+
+<Callout kind="info">
+  Review your plan limits for webhook and API usage in the dashboard at `https://dashboard.example.com/account/limits`.
+</Callout>
+
+## Supported Integrations
+
+Connect Orbit Media Studios to your favorite tools using native integrations or webhooks.
+
+<Columns cols={3}>
+  <Card title="Slack" icon="message-circle" href="https://slack.com" target="_blank">
+    Receive notifications for new documents and updates.
+  </Card>
+  <Card title="GitHub" icon="github" href="https://github.com" target="_blank">
+    Sync repositories with documentation spaces.
+  </Card>
+  <Card title="Zapier" icon="zap" href="https://zapier.com" target="_blank">
+    Build no-code automations with 5000+ apps.
+  </Card>
+</Columns>
+
+## Webhook Setup
+
+Set up webhooks to trigger actions on events like document creation or updates.
+
+<Steps>
+  <Step title="Create Webhook" icon="plus">
+    Navigate to `https://dashboard.example.com/settings/webhooks` and click "New Webhook".
+  </Step>
+  <Step title="Configure Events" icon="settings">
+    Select events such as `document.created` or `space.updated`.
+  </Step>
+  <Step title="Add Endpoint" icon="link">
+    Enter your endpoint URL, e.g., `https://your-webhook-url.com/webhook`.
+  </Step>
+  <Step title="Test and Save" icon="check-circle">
+    Send a test payload and save the webhook.
+  </Step>
+</Steps>
+
+Here is a sample webhook payload:
+
+<CodeGroup tabs="JSON">
+  ```json
+  {
+    "event": "document.created",
+    "spaceId": "spc_1234567890abcdef",
+    "documentId": "doc_abcdef1234567890",
+    "timestamp": "2024-10-15T10:30:00Z",
+    "data": {
+      "title": "New API Guide",
+      "url": "https://docs.example.com/spaces/my-space/docs/api-guide"
+    }
+  }
+  ```
+</CodeGroup>
+
+## Export and Import
+
+Export your documentation for backups or migrate content between spaces. Import from Markdown files or other platforms.
+
+<Tabs>
+  <Tab title="Export" icon="download">
+    Use the dashboard export feature:
+
+    <CodeGroup tabs="CLI,Dashboard">
+      ```bash
+      orbit-export --space=spc_123 --format=markdown --output=./backup
+      ```
+      ```bash
+      # Dashboard: Settings > Export > Select format (Markdown, PDF, HTML)
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Import" icon="upload">
+    Import files via CLI or dashboard.
+
+    <CodeGroup tabs="CLI,Dashboard">
+      ```bash
+      orbit-import --space=spc_123 --path=./docs --format=markdown
+      ```
+      ```bash
+      # Dashboard: Settings > Import > Upload ZIP or folder
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## API Access for Custom Extensions
+
+Build custom integrations using the REST API at `https://api.example.com/v1`.
+
+<ParamField path="spaceId" param-type="string" required="true">
+  Unique space identifier.
+</ParamField>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer `YOUR_API_KEY`.
+</ParamField>
+
+Example: List integrations.
+
+<Request tabs="cURL,JavaScript">
+  ```bash
+  curl -X GET https://api.example.com/v1/integrations \
+    -H "Authorization: Bearer YOUR_API_KEY"
+  ```
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/integrations', {
+    headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+  });
+  const integrations = await response.json();
+  ```
+</Request>
+
+<Response tabs="200">
+  ```json
+  {
+    "integrations": [
+      {
+        "id": "int_123",
+        "type": "slack",
+        "status": "active",
+        "createdAt": "2024-10-15T10:00:00Z"
+      }
+    ]
+  }
+  ```
+</Response>
+
+<Callout kind="tip">
+  Generate API keys at `https://dashboard.example.com/api-keys`. Rotate them regularly for security.
+</Callout>
+
+<Expandable title="Advanced: Webhook Verification" default-open="false">
+  Verify webhook signatures using HMAC SHA-256.
+
+  ```javascript
+  const crypto = require('crypto');
+  const signature = 'sha256=' + crypto.createHmac('sha256', 'YOUR_WEBHOOK_SECRET')
+    .update(payload)
+    .digest('hex');
+  ```
+</Expandable>

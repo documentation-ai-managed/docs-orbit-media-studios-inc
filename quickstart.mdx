@@ -1,0 +1,110 @@
+---
+title: Getting Started with Orbit Media Studios
+description: Set up your account and create your first documentation space in just a few minutes to begin managing your projects.
+---
+
+## Prerequisites
+
+<Callout kind="info">
+Before you begin, ensure you have:
+- A modern web browser like Chrome, Firefox, or Safari
+- An email address for account verification
+- Optional: A team domain if managing multiple projects
+</Callout>
+
+Orbit Media Studios helps you organize project documentation efficiently. Complete the setup in under five minutes.
+
+## Create Your Account
+
+Follow these steps to register.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="monitor">
+    Navigate to [https://app.orbitmedia.com](https://app.orbitmedia.com).
+  </Step>
+  <Step title="Sign Up" icon="user-plus">
+    Click **Sign Up** and enter your email, name, and password.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification link from Orbit Media Studios and click it.
+  </Step>
+</Steps>
+
+## Log In and Initial Workspace Setup
+
+Once verified, log in to configure your workspace.
+
+<Tabs>
+  <Tab title="Web Browser" icon="globe">
+    Enter your credentials at [https://app.orbitmedia.com/login](https://app.orbitmedia.com/login).
+  </Tab>
+  <Tab title="CLI (Advanced)" icon="terminal">
+    Install the CLI and authenticate:
+
+    <CodeGroup tabs="npm,yarn">
+```bash
+npm install -g @orbitmedia/cli
+orbit login
+```
+```bash
+yarn global add @orbitmedia/cli
+orbit login
+```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+After login, set your workspace name and default language in the settings panel.
+
+## Create Your First Documentation Project
+
+Build your first space quickly.
+
+<Steps>
+  <Step title="New Project" icon="plus">
+    Click **New Documentation Space** in the sidebar.
+  </Step>
+  <Step title="Configure Basics" icon="settings">
+    Enter a name like "Project Alpha Docs", select visibility (`public` or `private`), and add a description.
+  </Step>
+  <Step title="Add Content" icon="file-text">
+    Create your first page with the editor. Use markdown or the visual builder.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+Save frequently. Your changes auto-publish to the live space.
+</Callout>
+
+## Basic Interface Tour
+
+Explore the main areas:
+
+<Columns cols={3}>
+  <Card title="Sidebar" icon="menu" href="#sidebar">
+    Access projects, settings, and templates.
+  </Card>
+  <Card title="Editor" icon="edit-3" href="#editor">
+    Write in MDX with live preview.
+  </Card>
+  <Card title="Preview" icon="eye" href="#preview">
+    See real-time rendering of your docs.
+  </Card>
+</Columns>
+
+<Expandable title="Advanced Sidebar Options" default-open="false">
+  Customize with `{theme: 'dark'}` in config files for personalized views.
+</Expandable>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your projects with API keys.
+  </Card>
+  <Card title="Advanced Guides" icon="book-open" href="/guides">
+    Dive into custom themes and integrations.
+  </Card>
+</Columns>
+
+You now have a working documentation space. Experiment with pages and share your first project link. For support, check the help center.
